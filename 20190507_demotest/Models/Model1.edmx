@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="betterbetterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="booknote">
+          <Key>
+            <PropertyRef Name="booknoteid" />
+          </Key>
+          <Property Name="booknoteid" Type="int" Nullable="false" />
+          <Property Name="bookName" Type="nvarchar" MaxLength="50" />
+          <Property Name="bookcontext" Type="nvarchar(max)" />
+          <Property Name="bookquate" Type="nvarchar(max)" />
+          <Property Name="authorname" Type="nvarchar" MaxLength="50" />
+          <Property Name="authorinfo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="lovequate">
+          <Key>
+            <PropertyRef Name="quateID" />
+          </Key>
+          <Property Name="quateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bookName" Type="nvarchar" MaxLength="50" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" />
+          <Property Name="quatetext" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sharedTable">
+          <Key>
+            <PropertyRef Name="sharedid" />
+          </Key>
+          <Property Name="sharedid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bookName" Type="nvarchar" MaxLength="50" />
+          <Property Name="author" Type="nvarchar" MaxLength="50" />
+          <Property Name="sharedtitle" Type="nvarchar" MaxLength="30" />
+          <Property Name="sharedmessage" Type="nvarchar(max)" />
+          <Property Name="vote" Type="int" />
+        </EntityType>
+        <EntityType Name="totbooklist">
+          <Key>
+            <PropertyRef Name="bookName" />
+          </Key>
+          <Property Name="booklistid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bookName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="bookprice" Type="int" />
+          <Property Name="booktype" Type="nvarchar" MaxLength="50" />
+          <Property Name="bookstocknum" Type="int" />
+          <Property Name="bookauthor" Type="nvarchar" MaxLength="50" />
+          <Property Name="bookpicture" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--產生期間發現錯誤:
+警告 6002: 資料表/檢視 'betterbetter.dbo.top3quate' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+        <EntityType Name="top3quate">
+          <Key>
+            <PropertyRef Name="topID" />
+          </Key>
+          <Property Name="bookName" Type="nvarchar" MaxLength="50" />
+          <Property Name="topID" Type="int" Nullable="false" />
+          <Property Name="totVote" Type="int" />
+        </EntityType>
+        <EntityContainer Name="betterbetterModelStoreContainer">
+          <EntitySet Name="booknote" EntityType="Self.booknote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lovequate" EntityType="Self.lovequate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sharedTable" EntityType="Self.sharedTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="totbooklist" EntityType="Self.totbooklist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="top3quate" EntityType="Self.top3quate" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [top3quate].[bookName] AS [bookName], 
+    [top3quate].[topID] AS [topID], 
+    [top3quate].[totVote] AS [totVote]
+    FROM [dbo].[top3quate] AS [top3quate]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="betterbetterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="booknote">
+          <Key>
+            <PropertyRef Name="booknoteid" />
+          </Key>
+          <Property Name="booknoteid" Type="Int32" Nullable="false" />
+          <Property Name="bookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bookcontext" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bookquate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="authorname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="authorinfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="lovequate">
+          <Key>
+            <PropertyRef Name="quateID" />
+          </Key>
+          <Property Name="quateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="quatetext" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sharedTable">
+          <Key>
+            <PropertyRef Name="sharedid" />
+          </Key>
+          <Property Name="sharedid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sharedtitle" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="sharedmessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vote" Type="Int32" />
+        </EntityType>
+        <EntityType Name="totbooklist">
+          <Key>
+            <PropertyRef Name="bookName" />
+          </Key>
+          <Property Name="booklistid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bookprice" Type="Int32" />
+          <Property Name="booktype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bookstocknum" Type="Int32" />
+          <Property Name="bookauthor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bookpicture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="top3quate">
+          <Key>
+            <PropertyRef Name="topID" />
+          </Key>
+          <Property Name="bookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="topID" Type="Int32" Nullable="false" />
+          <Property Name="totVote" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="betterbetterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="booknotes" EntityType="Self.booknote" />
+          <EntitySet Name="lovequates" EntityType="Self.lovequate" />
+          <EntitySet Name="sharedTables" EntityType="Self.sharedTable" />
+          <EntitySet Name="totbooklists" EntityType="Self.totbooklist" />
+          <EntitySet Name="top3quate" EntityType="Self.top3quate" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="betterbetterModelStoreContainer" CdmEntityContainer="betterbetterEntities">
+          <EntitySetMapping Name="booknotes">
+            <EntityTypeMapping TypeName="betterbetterModel.booknote">
+              <MappingFragment StoreEntitySet="booknote">
+                <ScalarProperty Name="booknoteid" ColumnName="booknoteid" />
+                <ScalarProperty Name="bookName" ColumnName="bookName" />
+                <ScalarProperty Name="bookcontext" ColumnName="bookcontext" />
+                <ScalarProperty Name="bookquate" ColumnName="bookquate" />
+                <ScalarProperty Name="authorname" ColumnName="authorname" />
+                <ScalarProperty Name="authorinfo" ColumnName="authorinfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lovequates">
+            <EntityTypeMapping TypeName="betterbetterModel.lovequate">
+              <MappingFragment StoreEntitySet="lovequate">
+                <ScalarProperty Name="quateID" ColumnName="quateID" />
+                <ScalarProperty Name="bookName" ColumnName="bookName" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="quatetext" ColumnName="quatetext" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sharedTables">
+            <EntityTypeMapping TypeName="betterbetterModel.sharedTable">
+              <MappingFragment StoreEntitySet="sharedTable">
+                <ScalarProperty Name="sharedid" ColumnName="sharedid" />
+                <ScalarProperty Name="bookName" ColumnName="bookName" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="sharedtitle" ColumnName="sharedtitle" />
+                <ScalarProperty Name="sharedmessage" ColumnName="sharedmessage" />
+                <ScalarProperty Name="vote" ColumnName="vote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="totbooklists">
+            <EntityTypeMapping TypeName="betterbetterModel.totbooklist">
+              <MappingFragment StoreEntitySet="totbooklist">
+                <ScalarProperty Name="booklistid" ColumnName="booklistid" />
+                <ScalarProperty Name="bookName" ColumnName="bookName" />
+                <ScalarProperty Name="bookprice" ColumnName="bookprice" />
+                <ScalarProperty Name="booktype" ColumnName="booktype" />
+                <ScalarProperty Name="bookstocknum" ColumnName="bookstocknum" />
+                <ScalarProperty Name="bookauthor" ColumnName="bookauthor" />
+                <ScalarProperty Name="bookpicture" ColumnName="bookpicture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="top3quate">
+            <EntityTypeMapping TypeName="betterbetterModel.top3quate">
+              <MappingFragment StoreEntitySet="top3quate">
+                <ScalarProperty Name="bookName" ColumnName="bookName" />
+                <ScalarProperty Name="topID" ColumnName="topID" />
+                <ScalarProperty Name="totVote" ColumnName="totVote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

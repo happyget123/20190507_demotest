@@ -1,0 +1,246 @@
+﻿@model List<_20190507_demotest.Models.totbooklist>
+
+
+<aside id="colorlib-hero">
+    <div class="flexslider">
+        <ul class="slides">
+            <li style="background-image: url(/images/image_4.jpg);">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-pull-3 col-sm-12 col-xs-12 col-md-offset-3 slider-text">
+                            <div class="slider-text-inner">
+                                <div class="desc" style="opacity: 0.8">
+                                    <!--				   						<p class="meta">
+                                        <span class="cat"><a href="#">Events</a></span>
+                                        <span class="date">20 March 2018</span>
+                                        <span class="pos">By <a href="#">Rich</a></span>
+                                    </p>-->
+                                    <span style="font-family: DFKai-sb;">
+                                        <h1>有多少時間沒有與自己好好相處了呢?</h1>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li style="background-image: url(/images/bg_2.jpg);">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-pull-3 col-sm-12 col-xs-12 col-md-offset-3 slider-text">
+                            <div class="slider-text-inner">
+                                <div class="desc" style="opacity: 0.8">
+                                    <h1>拾起一本你所感興趣的書本，一起越來越好吧</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</aside>
+<div id="colorlib-container">
+    <div class="container">
+        <div class="row row-pb-md">
+            <div>
+                <h2 style="font-family: DFKai-sb;">私房推薦</h2>
+                <br>
+                <br>
+            </div>
+            @foreach (var item in Model)
+            {
+                <li>
+
+                    <div class="col-md-4">
+                        <div class="blog-entry">
+                            <div class="blog-img">
+                                <a href="blog.html"><img src="~/images/@item.bookpicture" class="img-responsive" alt="html5 bootstrap template"></a>
+                            </div>
+                            <div class="desc">
+                                <p class="meta">
+                                    <span class="cat"><a>書名:</a></span>
+                                    <span class="date"><a>@item.bookName</a></span>
+                                    <span class="pos">By <a style="font-style: italic">@item.bookauthor</a></span>
+                                </p>
+                                <h2><a href="blog.html">@item.bookName</a></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            }
+
+
+
+
+
+
+            @*<div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="blog-img">
+                        <a href="blog.html"><img src="~/images/02.jpg" class="img-responsive" alt="html5 bootstrap template"></a>
+                    </div>
+                    <div class="desc">
+                        <p class="meta">
+                            <span class="cat"><a>書名:</a></span>
+                            <span class="date"><a>願你在深淵綻放</a></span>
+                            <span class="pos">By <a>Rich</a></span>
+                        </p>
+                        <h2><a href="blog.html">Recipe for your site</a></h2>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="blog-img">
+                        <a href="blog.html"><img src="~/images/01.jpg" class="img-responsive" alt="html5 bootstrap template"></a>
+                    </div>
+                    <div class="desc">
+                        <p class="meta">
+                            <span class="cat"><a href="#">Read</a></span>
+                            <span class="date">20 March 2018</span>
+                            <span class="pos">By <a href="#">Rich</a></span>
+                        </p>
+                        <h2><a href="blog.html">Recipe for your site</a></h2>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary </p>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <div class="row row-pb-md">
+            <div>
+                <h2 style="font-family: DFKai-sb;">討論度 TOP 3</h2>
+            </div>
+            <div class="col-md-4" style="text-align:center ">
+                <h3 style="font-style: italic">TOP.1</h3>
+                <div class="blog-entry">
+                    <div class="blog-img">
+                        <a><img src="~/images/01.jpg" class="img-responsive" alt="html5 bootstrap template"></a>
+                    </div>
+                    <div class="desc">
+                        <p class="meta">
+                            <span class="cat"><a>喜歡自己</a></span>
+                            <span class="pos">By <a href="#">Rich</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="text-align:center ">
+                <h3 style="font-style: italic">TOP.2</h3>
+                <div class="blog-entry">
+                    <div class="blog-img">
+                        <a href="blog.html"><img src="~/images/02.jpg" class="img-responsive" alt="html5 bootstrap template"></a>
+                    </div>
+                    <div class="desc">
+                        <p class="meta">
+                            <span class="cat"><a>Lifestyle</a></span>
+                            <span class="pos">By <a>Rich</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="text-align:center ">
+                <h3 style="font-style: italic">TOP.3</h3>
+                <div class="blog-entry">
+                    <div class="blog-img">
+                        <a href="blog.html"><img src="~/images/03.jpg" class="img-responsive" alt="html5 bootstrap template"></a>
+                    </div>
+                    <div class="desc">
+                        <p class="meta">
+                            <span class="cat"><a>你好了嗎</a></span>
+                            <span class="pos">By <a>Rich</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-pb-md">
+            <div>
+                <h2 style="font-family: DFKai-sb;">程式設計類入門</h2>
+                <br>
+                <br>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="blog-img">
+                        <a href="blog.html"><img src="~/images/getImage%20(1).jpg" class="img-responsive" alt="html5 bootstrap template"></a>
+                    </div>
+                    <div class="desc">
+                        <p class="meta">
+                            <span class="cat"><a>書名:</a></span>
+                            <span class="date"><a>讓響應式&#40;RWD&#41;網頁設計變得簡單&#58;Bootstrap開發速成&#40;二版&#41;</a></span>
+                            <span class="pos">By <a style="font-style: italic">呂國泰</a></span>
+                        </p>
+                        <h2><a href="blog.html">Recipe for your site</a></h2>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="blog-img">
+                        <a href="blog.html"><img src="~/images/getImage.jpg" class="img-responsive" alt="html5 bootstrap template"></a>
+                    </div>
+                    <div class="desc">
+                        <p class="meta">
+                            <span class="cat"><a>書名:</a></span>
+                            <span class="date"><a>從零開始學Visual&nbsp;C&#35;&nbsp;2017程式設計</a></span>
+                            <span class="pos">By <a>李馨</a></span>
+                        </p>
+                        <h2><a href="blog.html">Recipe for your site</a></h2>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-entry">
+                    <div class="blog-img">
+                        <a href="blog.html"><img src="~/images/getImage%20(2).jpg" class="img-responsive" alt="html5 bootstrap template"></a>
+                    </div>
+                    <div class="desc">
+                        <p class="meta">
+                            <span class="cat"><a>書名:</a></span>
+                            <span class="date"><a>跟著實務學習ASP&#46;NET&nbsp;MVC&#58;第一次寫MVC就上手&#40;附DVD一片&#41;</a></span>
+                            <span class="pos">By <a>蔡文龍,蔡捷雲,歐志信,曾芷琳,萬鴻曜  </a></span>
+                        </p>
+                        <h2><a href="blog.html">Recipe for your site</a></h2>
+                        <p>A small river named Duden flows by their place and supplies it with the necessary </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-pb-md" style="flex-flow: column">
+            <article class="masonry__brick entry format-quote" data-aos="fade-up">
+                <div class="col-md-4">
+                    <blockquote>
+                        <p>如果你也正在眺望整這整片雲彩</p><cite>辛波絲卡</cite>
+                    </blockquote>
+                </div>
+            </article> <!-- end article -->
+            <article class="masonry__brick entry format-quote" data-aos="fade-up">
+                <div class="col-md-4">
+                    <blockquote>
+                        <p>如果這就是如果地化，你是否也想要聆聽這整片宇宙</p><cite>來自何方</cite>
+                    </blockquote>
+                </div>
+            </article> <!-- end article -->
+            <article class="masonry__brick entry format-quote" data-aos="fade-up">
+                <div class="col-md-4">
+                    <blockquote>
+                        <p>你喜歡這本書嗎?我想你一定喜歡 的</p><cite>海哭的聲音</cite>
+                    </blockquote>
+                </div>
+            </article> <!-- end article -->
+        </div>
+    </div>
+</div>
+<div class="col-md-4"></div>
+<div class="col-md-6">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/icOPUwJuzck" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="col-md-4"></div>
